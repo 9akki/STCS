@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.MessageMapper">
+
+
+    <insert id="addMindStormMessage">
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into student_collaborative_task_system.mindstorm_message(claim, producer_id,create_time, update_time, producer_name,procedure_id) values( #{claim}, #{producerID},now(), now(), #{producerName},#{procedureID})
+    </insert>
+</mapper>
